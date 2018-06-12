@@ -31,27 +31,37 @@ namespace loginMVC.Controllers
             {
                 return View(login);
             }
-            return View(login);
 
-            var AchouDadosUsuario = (login.Usuario == "hugo" && login.Senha == "asqwe");
+                var AchouDadosUsuario = (login.Usuario == "hugo" && login.Senha == "asdqwe");
 
-            if (AchouDadosUsuario)
-            {
-                FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
-                if (Url.IsLocalUrl(returnUrl))
+                if (AchouDadosUsuario)
                 {
-                    return Redirect(returnUrl);
-                } else
+                    FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        RedirectToAction("Index", "Home");
+                    }
+
+                }
+                else
                 {
-                    RedirectToAction("Index", "Home");
-                }   
-
-            } else
-            {
-                ModelState.AddModelError("", "Login Inválido. ");
-            }
-
+                    ModelState.AddModelError("", "Login Inválido. ");
+                }
+            
+            
             return View(login);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index","Home");
         }
     }
 }
