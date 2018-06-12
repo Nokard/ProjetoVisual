@@ -8,12 +8,16 @@ namespace loginMVC.Controllers
 {
     public class RelatorioController : Controller
     {
-        // GET: Relatorio
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult PosicaoEstoque()
         {
             return View();
         }
-
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult Ressuprimento()
         {
             return View();

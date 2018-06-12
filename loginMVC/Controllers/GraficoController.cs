@@ -8,12 +8,16 @@ namespace loginMVC.Controllers
 {
     public class GraficoController : Controller
     {
-        // GET: Grafico
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult PerdaMes()
         {
             return View();
         }
-
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult EntradaSaidaMes()
         {
             return View();

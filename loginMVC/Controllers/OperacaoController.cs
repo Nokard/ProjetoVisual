@@ -8,23 +8,31 @@ namespace loginMVC.Controllers
 {
     public class OperacaoController : Controller
     {
-        // GET: Operacao
 
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult EntradaEstoque()
         {
             return View();
         }
-
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult SaidaEstoque()
         {
             return View();
         }
-
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult LancPerdaProduto()
         {
             return View();
         }
-
+        //Authorize Para acessar tem que estar logado
+        //com autorização
+        [Authorize]
         public ActionResult Inventario()
         {
             return View();
