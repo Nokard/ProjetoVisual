@@ -26,13 +26,13 @@ namespace loginMVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(LoginViewModel login, string returnUrl)
         {
-
             if (!ModelState.IsValid)
             {
                 return View(login);
             }
-
-                var AchouDadosUsuario = (login.Usuario == "hugo" && login.Senha == "asdqwe");
+            //ValidarUsuario é uma Classe que faz a verificacao no Banco de Dados 
+            // e retorna o Usuario e a Senha para essa classe
+                var AchouDadosUsuario = UsuarioModel.ValidarUsuario(login.Usuario, login.Senha);
 
                 if (AchouDadosUsuario)
                 {
@@ -43,7 +43,7 @@ namespace loginMVC.Controllers
                     }
                     else
                     {
-                        RedirectToAction("Index", "Home");
+                        RedirectToAction("Produto", "Cadastro");
                     }
 
                 }
