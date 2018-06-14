@@ -30,8 +30,10 @@ namespace loginMVC.Controllers
             {
                 return View(login);
             }
-            //ValidarUsuario é uma Classe que faz a verificacao no Banco de Dados 
-            // e retorna o Usuario e a Senha para essa classe
+            else
+            {
+                //ValidarUsuario é uma Classe que faz a verificacao no Banco de Dados 
+                // e retorna o Usuario e a Senha para essa classe
                 var AchouDadosUsuario = UsuarioModel.ValidarUsuario(login.Usuario, login.Senha);
 
                 if (AchouDadosUsuario)
@@ -43,17 +45,17 @@ namespace loginMVC.Controllers
                     }
                     else
                     {
-                        RedirectToAction("Produto", "Cadastro");
+                        RedirectToAction("Index", "Home");
                     }
 
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Login Inválido. ");
+                    ModelState.AddModelError("", "E-mail ou Senha são Inválidos");
                 }
-            
-            
-            return View(login);
+
+            }
+           return View(login);
         }
 
         [HttpPost]

@@ -8,12 +8,12 @@ namespace loginMVC.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Usuário não pode ser vazio")]
         //Display Colocar o nome no 'label for' 
         [Display(Name ="Usuário")]
         public string Usuario { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Senha não pode ser vazio")]
         //Display Colocar o nome no 'label for' 
         [Display(Name ="Senha")]
         public string  Senha { get; set; }
